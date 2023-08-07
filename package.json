@@ -5,11 +5,17 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.14.2",
+    "@mui/icons-material": "^5.14.1",
+    "@mui/material": "^5.14.3",
+    "@mui/x-date-pickers": "^6.10.2",
+    "@mui/x-date-pickers-pro": "^6.10.2",
     "@react-icons/all-files": "^4.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@wojtekmaj/react-daterange-picker": "^5.4.2",
+    "dayjs": "^1.11.9",
+    "postcss": "^8.4.27",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
@@ -39,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-router-dom": "^6.14.2"
   }
 }

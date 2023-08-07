@@ -11,20 +11,6 @@ function Tourlist() {
 
         <Cards/>
        
-        {/* <Grid container spacing={1}>
-  <Grid item xs={3}>
-    <Item><Cards/></Item>
-  </Grid>
-  <Grid item xs={3}>
-    <Item><Cards/></Item>
-  </Grid>
-  <Grid item xs={3}>
-    <Item><Cards/></Item>
-  </Grid>
-  <Grid item xs={3}>
-    <Item><Cards/></Item>
-  </Grid>
-</Grid> */}
         
     </Box>
   )

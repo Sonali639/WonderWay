@@ -7,15 +7,15 @@ const TourListData = [
         desc: "28 kilometers away",
         date: "10-19 july",
         price:"50,000"
-    }
+       }
     ,
     {
         img: 'https://a0.muscache.com/im/pictures/miso/Hosting-651915237420937611/original/61fa733e-1e5d-4f4e-b5cd-87f2d671983b.jpeg?im_w=720',
         title:"Uttrakhand , India",
         desc: "28 kilometers away",
         date: "10-19 july",
-        price:"50,000"
-    },
+        price:"50,000",
+   },
     {
         img: 'https://a0.muscache.com/im/pictures/miso/Hosting-914327275681336688/original/da149c5b-41ee-44da-a00e-ad72ec397dd8.jpeg?im_w=720',
         title:"Mumbai , India",
