@@ -12,67 +12,48 @@ export default function TourImage() {
   const data=TourDetailsData[0];
   return (
     <Box>
-       <Grid container spacing={1} sx={{py:3}} >
-        <Grid item xs={6}>
-          <CardMedia
-            component="img"
-            // alt={props.title}
-            height="316px"
-            width="100%"
-            image={data.img1}
-          />
-        </Grid>
-        <Grid item xs={6}>
-          <Box>
-            <Grid container spacing={1}>
-              <Grid item xs={6}>
-                <Item>
-                <CardMedia
-            component="img"
-            // alt={props.title}
-            height="154px"
-            width="100%"
-            image={data.img2}
-          />
-                </Item>
-              </Grid>
-              <Grid item xs={6}>
-                <Item>
-                <CardMedia
-            component="img"
-            // alt={props.title}
-            height="154px"
-            width="100%"
-            image={data.img3}
-          />
-                </Item>
-              </Grid>
-              <Grid item xs={6}>
-                <Item>
-                <CardMedia
-            component="img"
-            // alt={props.title}
-            height="154px"
-            width="100%"
-            image={data.img4}
-          />
-                </Item>
-              </Grid>
-              <Grid item xs={6}>
-                <Item>
-                <CardMedia
-            component="img"
-            // alt={props.title}
-            height="154px"
-            width="100%"
-            image={data.img5}
-          />
-                </Item>
-              </Grid>
-            </Grid>
-          </Box>
-        </Grid>
+     <Grid container spacing={1} sx={{ py: 3 }}>
+      <Grid item xs={12} md={6}>
+        <CardMedia
+          component="img"
+          height="316px"
+          width="100%"
+          image={data.img1}
+        />
       </Grid>
+      <Grid item xs={12} md={6}>
+        <Box>
+          <Grid container spacing={1}>
+            {[data.img2, data.img3].map((img, index) => (
+              <Grid key={index} item xs={6} sm={3} md={6}>
+                <Box>
+                  <CardMedia
+                    component="img"
+                    height="154px"
+                    width="100%"
+                    image={img}
+                  />
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+          <Grid container spacing={1} sx={{pt:1}}>
+            {[data.img4, data.img5].map((img, index) => (
+              <Grid key={index} item xs={6} sm={3} md={6}>
+                <Box>
+                  <CardMedia
+                    component="img"
+                    height="154px"
+                    width="100%"
+                    image={img}
+                  />
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Grid>
+    </Grid>
     </Box>
     )}
 

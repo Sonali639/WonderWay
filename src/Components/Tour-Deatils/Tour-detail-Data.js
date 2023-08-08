@@ -14,7 +14,7 @@ const TourDetailsData = [
         bed:'2',
         bedroom:'1',
         bathroom:'2',
-        place1:'<GiMountains/> Mountain view',
+        place1:'Mountain view',
         place2:'Free driveway parking on premises – 4 spaces',
         place3:'Private outdoor pool – available all year, open specific hours',
         place4:'38" HDTV with cable/satellite TV',

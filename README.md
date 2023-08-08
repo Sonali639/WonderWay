@@ -1,8 +1,8 @@
-# Welcome to WanderWay - Tour Booking React Project
+# LoveTravel - Tour Booking React Project
 
-![WanderWay Logo](images/logo.png)
+![LoveTravel Logo](images/logo.png)
 
-WanderWay is a React-based project for tour booking, designed to make your travel dreams come true. This project utilizes popular libraries like `react-icons` and `mui` to enhance user experience and provide interactive features. In this README, you'll find information on the project, installation instructions for the required libraries, and how to incorporate interactive icons.
+LoveTravel is a React-based project that offers seamless tour booking experiences. This project leverages the power of `react-icons` and `mui` to enhance user interactions and provide stunning UI components. In this README, you'll find details about these libraries, installation instructions, and how to integrate interactive icons into your project.
 
 ## Table of Contents
 
@@ -13,11 +13,11 @@ WanderWay is a React-based project for tour booking, designed to make your trave
 - [Using Interactive Icons](#using-interactive-icons)
 - [Screenshots](#screenshots)
 - [Video Showcase](#video-showcase)
-- [Contact Us](#contact-us)
+- [Contact](#contact)
 
 ## Project Overview
 
-WanderWay is a React application that allows users to discover and book exciting travel experiences. It features a user-friendly interface, visually appealing design, and interactive icons to enhance the overall user experience. The project uses `react-icons` to provide a wide range of customizable icons and `mui` (Material-UI) for building consistent and responsive UI components.
+LoveTravel is a React application designed for users to effortlessly discover and book their dream tours. The project is built upon `react-icons` for an extensive library of icons and `mui` (Material-UI) for creating elegant and responsive user interfaces.
 
 ## Installation
 
@@ -33,5 +33,4 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/wanderway.git
-   ```
+   git clone https://github.com/yourusername/lovetravel.git

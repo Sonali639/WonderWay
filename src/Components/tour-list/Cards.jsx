@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import Item from "@mui/material/Grid";
 import CardMedia from "@mui/material/CardMedia";
 import Wishlist from "./Wishlist";
-
+import { Link } from "react-router-dom";
 
 function Cards(props, index, addLike) {
   const [isLiked, setIsLiked] = useState(false);
@@ -27,55 +27,62 @@ function Cards(props, index, addLike) {
   return (
     <Grid item xs={12} md={3} key={index}>
       <Item>
-        <Box sx={{ py: 2, px: 1 }}>
-          <Box sx={{ position: "relative" }}>
-            <CardMedia
-              sx={{ borderRadius: "5%", objectFit: "cover" }}
-              component="img"
-              alt={props.title}
-              height="285px"
-              width="100%"
-              image={props.img}
-            />
-
-            <Box
-              className="text-overlay"
-              style={{ position: "absolute", top: 28, right: 26 }}
-              onClick={() => {
-                toggleLike();
-                toggleWishlist();
-              }}
-            >
-              <BsFillSuitHeartFill
-                style={{
-                  fontSize: "20px",
-                  color: props.isLiked ? "red" : "black",
-                  cursor: "pointer",
-                }}
-                onClick={() => {
-                  addLike(index, !isLiked);
-                  setIsLiked(!isLiked);
-                }}
+        
+          <Box sx={{ py: 2, px: 1 }}>
+            <Box sx={{ position: "relative" }}>
+              <CardMedia
+                sx={{ borderRadius: "5%", objectFit: "cover" }}
+                component="img"
+                alt={props.title}
+                height="285px"
+                width="100%"
+                image={props.img}
               />
+
+              <Box
+                className="text-overlay"
+                style={{ position: "absolute", top: 28, right: 26 }}
+                onClick={() => {
+                  toggleLike();
+                  toggleWishlist();
+                }}
+              >
+                <BsFillSuitHeartFill
+                  style={{
+                    fontSize: "20px",
+                    color: props.isLiked ? "#c60649" : "black",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    addLike(index, !isLiked);
+                    setIsLiked(!isLiked);
+                  }}
+                />
+              </Box>
             </Box>
+            <Link
+          to={`/TourDetails`}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+            <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
+              {props.title}
+            </Typography>
+            
+            <Typography
+              variant="body1"
+              color={"#717171"}
+              sx={{ lineHeight: "1.4", fontWeight: "200" }}
+            >
+              {props.desc}
+              <br />
+              {props.date}
+            </Typography>
+            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+              ${props.price}{" "}
+              <span style={{ fontWeight: "200", color: "#717171" }}>Night</span>
+            </Typography>
+            </Link>
           </Box>
-          <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
-            {props.title}
-          </Typography>
-          <Typography
-            variant="body1"
-            color={"#717171"}
-            sx={{ lineHeight: "1.4", fontWeight: "200" }}
-          >
-            {props.desc}
-            <br />
-            {props.date}
-          </Typography>
-          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-            ${props.price}{" "}
-            <span style={{ fontWeight: "200", color: "#717171" }}>Night</span>
-          </Typography>
-        </Box>
       </Item>
     </Grid>
   );

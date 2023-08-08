@@ -12,8 +12,9 @@ import { MdOutlineTravelExplore } from "react-icons/md";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import Loginbtn from "../Login/Loginbtn";
 import Signup from "../Login/Signup";
-import {BsSearchHeart} from "react-icons/bs";
+import {IoMdHeartEmpty} from "react-icons/io";
 import { Link } from "react-router-dom";
+
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -58,38 +59,6 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-const menuItems = [
-  {
-    id: 1,
-    title: "Home",
-    url: "/",
-    icon: <HiOutlineHome />,
-  },
-  {
-    id: 2,
-    title: "About",
-    url: "/about",
-    icon: <HiOutlineUserGroup />,
-  },
-  {
-    id: 3,
-    title: "Tours",
-    url: "/tours",
-    icon: <MdOutlineTravelExplore />,
-  },
-  {
-    id: 4,
-    title: "Gallery",
-    url: "/Images",
-    icon: <TfiGallery />,
-  },
-  {
-    id: 5,
-    title: "Contact",
-    url: "/contact",
-    icon: <BsTelephoneForward />,
-  },
-];
 
 function Rightbtn() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -121,25 +90,12 @@ function Rightbtn() {
         open={open}
         onClose={handleClose}
       >
-        <Box sx={{ display: { xs: "block", md: "none" } }}>
-          <Divider sx={{ my: 0.5 }} />
-          {menuItems.map((item) => (
-            <MenuItem
-              onClick={handleClose}
-              key={item.id}
-              disableRipple
-              sx={{ "&:hover": { color: "red" } }}
-            >
-              <Box sx={{ pr: 2 }}>{item.icon}</Box>
-              {item.title}
-            </MenuItem>
-          ))}
-        </Box>
+        
         <Divider sx={{ my: 0.5, display: { xs: "", md: "none" } }} />
         <MenuItem disableRipple sx={{ "&:hover": { color: "black" } }}>
           <Signup/>
         </MenuItem>
-        <Divider sx={{ my: 0.5, display: { xs: "none", md: "flex" } }} />
+        <Divider sx={{ my: 0.5, display: { xs: "flex", md: "flex" } }} />
         <MenuItem disableRipple sx={{ "&:hover": { color: "black" } }}>
           <Loginbtn />
         </MenuItem>
@@ -152,8 +108,8 @@ function Wishlistbtn() {
   return (
     <Box sx={{pr:2}}>
       <Link to="/wishlist">
-      <BsSearchHeart
-        style={{ fontSize: "28px", color: "black", cursor: "pointer" }}
+      <IoMdHeartEmpty
+        style={{ fontSize: "28px", color: "#c60649", cursor: "pointer" }}
         id="demo-customized-button"
         aria-haspopup="true"
       />

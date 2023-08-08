@@ -25,7 +25,7 @@ const CustomSelect = React.forwardRef(function CustomSelect(props, ref) {
 
 function ConfBox() {
   return (
-    <Box sx={{ px:3,}}>
+    <Box sx={{ px: { xs: 0, sm: 0 ,md:3 ,}}}>
        <Box
         sx={{
           boxShadow: 3,

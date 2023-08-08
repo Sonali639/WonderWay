@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
@@ -8,24 +8,42 @@ import ConfBox from "./ConfBox";
 import { GoShare } from "react-icons/go";
 import { GoHeart } from "react-icons/go";
 import TourDetailsData from "./Tour-detail-Data";
-import { GiMountains} from "react-icons/gi";
+import { GiMountains } from "react-icons/gi";
 
 const data = TourDetailsData[0];
+
 function TourDescInfo() {
   return (
     <Box>
       <Box>
-        <Typography variant="h5" gutterBottom sx={{ fontWeight: "bold" }}>
+        <Typography variant="h5" gutterBottom sx={{ fontWeight: "bold", textAlign:'center' }}>
           {data.title}
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography variant="body1" gutterBottom sx={{ fontWeight: "bold" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: "center",
+          }}
+        >
+          <Typography
+            variant="body1"
+            gutterBottom
+            sx={{ fontWeight: "bold", mb: { xs: 1, sm: 0 } }}
+          >
             {data.loc}
           </Typography>
           <Typography
             variant="body1"
             gutterBottom
-            sx={{ fontWeight: "bold", display: "flex", alignItems: "center" }}
+            sx={{
+              fontWeight: "bold",
+              display: "flex",
+              alignItems: "center",
+              ml: { xs: 0, sm: "auto" },
+              mt: { xs: 1, sm: 0 },
+            }}
           >
             <GoShare style={{ paddingRight: "5px" }} /> Share{" "}
             <span style={{ marginRight: "25px" }} />{" "}
@@ -41,7 +59,7 @@ function AboutTourDesc() {
   return (
     <Box>
       <Grid container spacing={2} sx={{ pb: 5 }}>
-        <Grid item xs={6} md={8}>
+        <Grid item xs={12} md={8}>
           <Item>
             <Box gridColumn="span 8">
               <Typography
@@ -66,7 +84,7 @@ function AboutTourDesc() {
               <Typography
                 variant="h5"
                 gutterBottom
-                sx={{ fontWeight: "200", pt: 4,pb:2 }}
+                sx={{ fontWeight: "200", pt: 4, pb: 2 }}
               >
                 What this place offers
               </Typography>
@@ -76,22 +94,22 @@ function AboutTourDesc() {
                   rowSpacing={1}
                   columnSpacing={{ xs: 1, sm: 2, md: 3 }}
                 >
-                  <Grid item xs={6}>
+                  <Grid item xs={6} sm={4} md={3}>
                     <Item>{data.place1}</Item>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={6} sm={4} md={3}>
                     <Item>{data.place2}</Item>
                   </Grid>
-                  <Grid item xs={6} sx={{ pt: 2 }}>
+                  <Grid item xs={6} sm={4} md={3}>
                     <Item>{data.place3}</Item>
                   </Grid>
-                  <Grid item xs={6} sx={{ pt: 2 }}>
+                  <Grid item xs={6} sm={4} md={3}>
                     <Item>{data.place4}</Item>
                   </Grid>
-                  <Grid item xs={6} sx={{ pt: 2 }}>
+                  <Grid item xs={6} sm={4} md={3}>
                     <Item>{data.place5}</Item>
                   </Grid>
-                  <Grid item xs={6} sx={{ pt: 2}}>
+                  <Grid item xs={6} sm={4} md={3}>
                     <Item>{data.place6}</Item>
                   </Grid>
                 </Grid>
@@ -99,7 +117,7 @@ function AboutTourDesc() {
             </Box>
           </Item>
         </Grid>
-        <Grid item xs={6} md={4}>
+        <Grid item xs={12} md={4}>
           <Item>
             <ConfBox sx={{ fix: 1 }} />
           </Item>
@@ -117,7 +135,7 @@ function AboutTourDesc() {
         width="100%"
         height="450"
         style={{ border: 0, paddingTop: "20px", paddingBottom: "40px" }}
-        allowfullscreen=""
+        allowFullScreen=""
         loading="lazy"
       ></iframe>
     </Box>

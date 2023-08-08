@@ -1,7 +1,7 @@
 import React from "react";
 import Login from "./Login";
 import Box from "@mui/material/Box";
-import { AiOutlineLogin } from "react-icons/ai";
+import { FiUserCheck } from "react-icons/fi";
 import { CiLock } from "react-icons/ci";
 import {CiMail} from "react-icons/ci";
 
@@ -43,7 +43,7 @@ function Loginbtn() {
   return (
     <Box>
       <Box onClick={handleClickOpen}>
-        <AiOutlineLogin style={{ marginRight: "10px" }} />
+        <FiUserCheck style={{ marginRight: "10px" }} />
         Login
       </Box>
       <Login

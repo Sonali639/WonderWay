@@ -11,7 +11,7 @@ import InputBase from "@mui/material/InputBase";
 import MenuIcon from "@mui/icons-material/Menu";
 import { BiSearchAlt } from "react-icons/bi";
 
-function Menu() {
+function MenuSearch() {
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -67,7 +67,7 @@ function Menu() {
       >
         <Search >
           <SearchIconWrapper>
-            <Box sx={{backgroundColor:'black', borderRadius:"50%" , p:0.7, border:"1px solid black"}}>
+            <Box sx={{backgroundColor:'#C60649', borderRadius:"50%" , p:0.7, border:"1px solid #c60649"}}>
             <BiSearchAlt fill="white" size={16} />
             </Box>
            
@@ -83,4 +83,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default MenuSearch;
