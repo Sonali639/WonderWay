@@ -2,8 +2,9 @@ import React from "react";
 import Login from "./Login";
 import Box from "@mui/material/Box";
 import { AiOutlineLogin } from "react-icons/ai";
-import { AiOutlineMail } from "react-icons/ai";
-import { GrContactInfo } from "react-icons/gr";
+import { CiUser } from "react-icons/ci";
+import { CiLock } from "react-icons/ci";
+import {CiMail} from "react-icons/ci";
 
 function Signup() {
   const [openLogin, setOpen] = React.useState(false);
@@ -27,21 +28,21 @@ function Signup() {
       id: 2,
       label: "Email",
       icon: (
-        <AiOutlineMail style={{ paddingTop: "20px", paddingRight: "15px" }} />
+        <CiMail style={{ paddingTop: "20px", paddingRight: "15px" ,fontSize:"20px"  }} />
       ),
     },
     {
       id: 1,
       label: "Username",
       icon: (
-        <GrContactInfo style={{ paddingTop: "20px", paddingRight: "15px" }} />
+        <CiUser style={{ paddingTop: "20px", paddingRight: "15px" ,fontSize:"20px" }} />
       ),
     },
     {
       id: 3,
       label: "Password",
       icon: (
-        <AiOutlineMail style={{ paddingTop: "20px", paddingRight: "15px" }} />
+        <CiLock style={{ paddingTop: "20px", paddingRight: "15px",fontSize:"20px"  }} />
       ),
     },
   ];

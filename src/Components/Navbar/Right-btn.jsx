@@ -4,8 +4,6 @@ import Box from "@mui/material/Box";
 import { CgProfile } from "react-icons/cg";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { AiOutlineLogin } from "react-icons/ai";
-import { VscSignIn } from "react-icons/vsc";
 import Divider from "@mui/material/Divider";
 import { HiOutlineHome } from "react-icons/hi";
 import { BsTelephoneForward } from "react-icons/bs";
@@ -14,6 +12,8 @@ import { MdOutlineTravelExplore } from "react-icons/md";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import Loginbtn from "../Login/Loginbtn";
 import Signup from "../Login/Signup";
+import {BsSearchHeart} from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -91,7 +91,7 @@ const menuItems = [
   },
 ];
 
-export default function Rightbtn() {
+function Rightbtn() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -102,7 +102,9 @@ export default function Rightbtn() {
   };
 
   return (
-    <div>
+
+    <Box sx={{display:'flex'}}>
+      <Wishlistbtn/>
       <CgProfile
         style={{ fontSize: "28px", color: "#353535", cursor: "pointer" }}
         id="demo-customized-button"
@@ -142,6 +144,23 @@ export default function Rightbtn() {
           <Loginbtn />
         </MenuItem>
       </StyledMenu>
-    </div>
+    </Box>
   );
 }
+
+function Wishlistbtn() {
+  return (
+    <Box sx={{pr:2}}>
+      <Link to="/wishlist">
+      <BsSearchHeart
+        style={{ fontSize: "28px", color: "black", cursor: "pointer" }}
+        id="demo-customized-button"
+        aria-haspopup="true"
+      />
+      </Link>
+    </Box>
+  );
+}
+
+export default Rightbtn;
+export { Wishlistbtn};

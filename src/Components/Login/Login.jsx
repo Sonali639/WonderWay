@@ -40,7 +40,7 @@ export default function AlertDialog(props) {
                   {item.icon}
                   <TextField
                     id="filled-basic"
-                    label={props.label}
+                    label={item.label}
                     variant="standard"
                     sx={{ borderBottom: "0px", width: "300px" }}
                     size="large"
