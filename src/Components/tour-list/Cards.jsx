@@ -8,66 +8,60 @@ import Item from "@mui/material/Grid";
 import CardMedia from "@mui/material/CardMedia";
 import Wishlist from "./Wishlist";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from "../../redux/wishlist/wishlistAction/index";
 
-function Cards(props, index, addLike) {
+function Cards(props) {
   const [isLiked, setIsLiked] = useState(false);
-  const [isInWishlist, setIsInWishlist] = useState([]);
 
-  const toggleLike = () => {
-    setIsLiked(!isLiked);
-  };
+  const likedTour = useSelector((state) => state.items);
+  const dispatch = useDispatch();
 
-  function toggleWishlist(title) {
-    if (isInWishlist.includes(title)) {
-      setIsInWishlist(isInWishlist.filter((item) => item !== title));
-    } else {
-      setIsInWishlist([...isInWishlist, title]);
-    }
-  }
   return (
-    <Grid item xs={12} md={3} key={index}>
+    <Grid item xs={12} md={3} key={props.id}>
       <Item>
-        
-          <Box sx={{ py: 2, px: 1 }}>
-            <Box sx={{ position: "relative" }}>
-              <CardMedia
-                sx={{ borderRadius: "5%", objectFit: "cover" }}
-                component="img"
-                alt={props.title}
-                height="285px"
-                width="100%"
-                image={props.img}
-              />
+        <Box sx={{ py: 2, px: 1 }}>
+          <Box sx={{ position: "relative" }}>
+            <CardMedia
+              sx={{ borderRadius: "5%", objectFit: "cover" }}
+              component="img"
+              alt={props.title}
+              height="285px"
+              width="100%"
+              image={props.img}
+            />
 
-              <Box
-                className="text-overlay"
-                style={{ position: "absolute", top: 28, right: 26 }}
-                onClick={() => {
-                  toggleLike();
-                  toggleWishlist();
+            <Box
+              className="text-overlay"
+              style={{ position: "absolute", top: 28, right: 26 }}
+            >
+              <BsFillSuitHeartFill
+                style={{
+                  fontSize: "20px",
+                  color: likedTour.includes(props) ? "#c60649" : "black",
+                  cursor: "pointer",
                 }}
-              >
-                <BsFillSuitHeartFill
-                  style={{
-                    fontSize: "20px",
-                    color: props.isLiked ? "#c60649" : "black",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => {
-                    addLike(index, !isLiked);
-                    setIsLiked(!isLiked);
-                  }}
-                />
-              </Box>
+                onClick={() => {
+                  likedTour.includes(props)
+                    ? dispatch(removeFromWishlist(props))
+                    : dispatch(addToWishlist(props));
+
+                  setIsLiked(!isLiked);
+                }}
+              />
             </Box>
-            <Link
-          to={`/TourDetails`}
-          style={{ textDecoration: "none", color: "black" }}
-        >
+          </Box>
+          <Link
+            to={`/TourDetails`}
+            style={{ textDecoration: "none", color: "black" }}
+          >
             <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
               {props.title}
             </Typography>
-            
+
             <Typography
               variant="body1"
               color={"#717171"}
@@ -81,28 +75,22 @@ function Cards(props, index, addLike) {
               ${props.price}{" "}
               <span style={{ fontWeight: "200", color: "#717171" }}>Night</span>
             </Typography>
-            </Link>
-          </Box>
+          </Link>
+        </Box>
       </Item>
     </Grid>
   );
 }
 
 function AddWishList() {
-  console.log(data);
-  return <Wishlist data={data} />;
+  return <Wishlist />;
 }
 
 function CardsInfo() {
-  function toggleLike(index, isLiked) {
-    data[index].isLiked = isLiked;
-    console.log(data[index]);
-  }
-
   return (
     <Box>
       <Grid container spacing={1}>
-        {data.map((item, index) => Cards(item, index, toggleLike))}
+        {data.map((item) => Cards(item))}
       </Grid>
     </Box>
   );
