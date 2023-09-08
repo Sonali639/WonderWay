@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import empty from "../image/empty.png";
 
 function Wishlist() {
-  const likedTour = useSelector((state) => state.items);
+  const likedTour = useSelector((state) => state.wishlist.items);
 
   return (
     <Box sx={{ px: 3 }}>

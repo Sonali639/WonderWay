@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
-import wishListReducer from './redux/wishlist/wishlistReducer/WishlistReducer';
+import rootReducer from "./redux/rootReducer"
 
-const store = createStore(wishListReducer);
+const store = createStore(rootReducer);
 
 export default store;

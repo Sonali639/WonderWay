@@ -1,8 +1,8 @@
-import WishlistReducer from "./WishlistReducer";
-import { combineReducers } from "redux";
+// import WishlistReducer from "./WishlistReducer";
+// import { combineReducers } from "redux";
 
-const rootReducer = combineReducers({
-    WishlistReducer,
-});
+// const rootReducer = combineReducers({
+//     WishlistReducer,
+// });
 
-export default rootReducer;
+// export default rootReducer;

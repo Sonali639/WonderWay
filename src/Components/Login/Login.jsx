@@ -1,23 +1,68 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Box from "@mui/material/Box";
-import Loginbtn from "./Loginbtn";
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
-import { TfiEmail } from "react-icons/tfi";
 import Stack from "@mui/material/Stack";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { AiOutlineLock } from "react-icons/ai";
 import Typography from "@mui/material/Typography";
-import { AiOutlineMail } from "react-icons/ai";
+import { useSelector, useDispatch } from "react-redux";
+import { login, signup } from "../../redux/login/losiAction";
 
 export default function AlertDialog(props) {
+  const [useDetails, setUseDetails] = React.useState({
+    Email: "",
+    Username: "",
+    Password: "",
+  });
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state.losi.user);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUseDetails((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+  // console.log(useDetails);
+
+  const handleSubmit = () => {
+    if (props.title === "Login") {
+      if(userData.length==0){
+        alert("Invalid Email or Password")
+      }
+      userData.map((item) => {
+        if (item.Email === useDetails.Email && item.Password === useDetails.Password) {
+         alert("Login Successful");
+          dispatch(login(useDetails));
+        }
+        else if(item.Email !== useDetails.Email || item.Password !== useDetails.Password){
+          alert("Invalid Email or Password")
+        }
+      
+        })
+    } 
+    
+    else {
+      if(useDetails.Email=="" || useDetails.Username=="" || useDetails.Password==""){
+        alert("Please fill all the fields")
+      }
+      else{
+        dispatch(signup(useDetails));
+        alert("Signup Successful");
+      }
+    
+    }
+  };
+
   return (
     <Box>
       <Dialog
@@ -41,6 +86,8 @@ export default function AlertDialog(props) {
                   <TextField
                     id="filled-basic"
                     label={item.label}
+                    name={item.label}
+                    onChange={handleInputChange}
                     variant="standard"
                     sx={{ borderBottom: "0px", width: "300px" }}
                     size="large"
@@ -71,6 +118,8 @@ export default function AlertDialog(props) {
               <Stack spacing={2} sx={{ py: 3 }} direction="row">
                 <Button
                   variant="contained"
+                  type="submit"
+                  onClick={handleSubmit}
                   sx={{
                     py: 1,
                     width: "100%",

@@ -17,8 +17,9 @@ import {
 function Cards(props) {
   const [isLiked, setIsLiked] = useState(false);
 
-  const likedTour = useSelector((state) => state.items);
+  const likedTour = useSelector((state) => state.wishlist.items);
   const dispatch = useDispatch();
+  
 
   return (
     <Grid item xs={12} md={3} key={props.id}>
