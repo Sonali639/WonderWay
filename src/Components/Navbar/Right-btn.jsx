@@ -115,6 +115,8 @@ function Rightbtn() {
 function Wishlistbtn() {
   return (
     <Box sx={{ pr: 2 }}>
+
+      
       <Link to="/wishlist">
         <IoMdHeartEmpty
           style={{ fontSize: "28px", color: "#c60649", cursor: "pointer" }}
