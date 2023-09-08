@@ -5,16 +5,13 @@ import { CgProfile } from "react-icons/cg";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
-import { HiOutlineHome } from "react-icons/hi";
-import { BsTelephoneForward } from "react-icons/bs";
-import { TfiGallery } from "react-icons/tfi";
-import { MdOutlineTravelExplore } from "react-icons/md";
-import { HiOutlineUserGroup } from "react-icons/hi";
 import Loginbtn from "../Login/Loginbtn";
 import Signup from "../Login/Signup";
-import {IoMdHeartEmpty} from "react-icons/io";
+import { IoMdHeartEmpty } from "react-icons/io";
 import { Link } from "react-router-dom";
 
+import Logout from "../Login/Logout";
+import { useSelector } from "react-redux";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -59,7 +56,6 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-
 function Rightbtn() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -70,10 +66,11 @@ function Rightbtn() {
     setAnchorEl(null);
   };
 
-  return (
+  const isauth = useSelector((state) => state.losi.isauth);
 
-    <Box sx={{display:'flex'}}>
-      <Wishlistbtn/>
+  return (
+    <Box sx={{ display: "flex" }}>
+      <Wishlistbtn />
       <CgProfile
         style={{ fontSize: "28px", color: "#353535", cursor: "pointer" }}
         id="demo-customized-button"
@@ -90,15 +87,26 @@ function Rightbtn() {
         open={open}
         onClose={handleClose}
       >
-        
         <Divider sx={{ my: 0.5, display: { xs: "", md: "none" } }} />
-        <MenuItem disableRipple sx={{ "&:hover": { color: "black" } }}>
-          <Signup/>
-        </MenuItem>
-        <Divider sx={{ my: 0.5, display: { xs: "flex", md: "flex" } }} />
-        <MenuItem disableRipple sx={{ "&:hover": { color: "black" } }}>
-          <Loginbtn />
-        </MenuItem>
+
+        {!isauth ? (
+          <>
+            <MenuItem disableRipple sx={{ "&:hover": { color: "black" } }}>
+              <Signup />
+            </MenuItem>
+            <Divider sx={{ my: 0.5, display: { xs: "flex", md: "flex" } }} />
+            <MenuItem disableRipple sx={{ "&:hover": { color: "black" } }}>
+              <Loginbtn />
+            </MenuItem>
+          </>
+        ) : (
+          <>
+            {" "}
+            <MenuItem disableRipple sx={{ "&:hover": { color: "black" } }}>
+              <Logout />
+            </MenuItem>
+          </>
+        )}
       </StyledMenu>
     </Box>
   );
@@ -106,17 +114,17 @@ function Rightbtn() {
 
 function Wishlistbtn() {
   return (
-    <Box sx={{pr:2}}>
+    <Box sx={{ pr: 2 }}>
       <Link to="/wishlist">
-      <IoMdHeartEmpty
-        style={{ fontSize: "28px", color: "#c60649", cursor: "pointer" }}
-        id="demo-customized-button"
-        aria-haspopup="true"
-      />
+        <IoMdHeartEmpty
+          style={{ fontSize: "28px", color: "#c60649", cursor: "pointer" }}
+          id="demo-customized-button"
+          aria-haspopup="true"
+        />
       </Link>
     </Box>
   );
 }
 
 export default Rightbtn;
-export { Wishlistbtn};
+export { Wishlistbtn };

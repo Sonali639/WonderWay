@@ -18,8 +18,9 @@ function Cards(props) {
   const [isLiked, setIsLiked] = useState(false);
 
   const likedTour = useSelector((state) => state.wishlist.items);
+  const isauth = useSelector((state) => state.losi.isauth);
   const dispatch = useDispatch();
-  
+
 
   return (
     <Grid item xs={12} md={3} key={props.id}>
@@ -46,12 +47,16 @@ function Cards(props) {
                   cursor: "pointer",
                 }}
                 onClick={() => {
+                  if (isauth===true) {
                   likedTour.includes(props)
                     ? dispatch(removeFromWishlist(props))
                     : dispatch(addToWishlist(props));
-
                   setIsLiked(!isLiked);
-                }}
+                }
+                else{
+                  alert("Please Login to add to wishlist")
+                }
+              }}
               />
             </Box>
           </Box>
